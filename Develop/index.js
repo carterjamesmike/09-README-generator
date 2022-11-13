@@ -3,11 +3,11 @@ const inquirer = require('inquirer');
 const fs = require('fs');
 
 // TODO: Create an array of questions for user input
-const gernerateReadme = ({projectTitle, description, install, usage, licence, contributors,tests, email, github }) =>
+const gernerateReadme = ({badge, projectTitle, description, install, usage, license, contributors,tests, email, github }) =>
   `# ${projectTitle}
 
 ## Description
-${description}
+${description} + ${badge}
 
 ## Table of Contents
 1. [Installation](#installation)
@@ -25,8 +25,8 @@ To install, run this command:
 ## Usage <div id='usage'/>
 ${usage}
 
-## Licence <div id='licence'/>
-This project is run under the ${licence} licensure
+## License <div id='license'/>
+This project is run under the ${license} licensure
 
 ## Contributors <div id='contributors'/>
 The contributors are: ${contributors}
@@ -37,13 +37,7 @@ For tests, run this command:
 >${tests}
 
 ## Questions <div id='questions'/>
-For quetions, please email at ${email} or visit the repo at ${github}`;
-
-
-// TODO: Create a function to write README file
-function writeToFile(answers) {
-
-}
+For quetions, please email at ${email} or visit my github profile at [${github}](https://github.com/${github})`;
 
 // TODO: Create a function to initialize app
 function init() {
@@ -74,6 +68,11 @@ function init() {
       name: 'license',
       message: 'What license is this project under?',
       choices: ['MIT', 'APACHE 2.0', 'GPL 3.0', 'BSD 3', 'None']
+    },
+    {
+      type: 'input',
+      name: 'install',
+      message: 'What is needed to run this application?',
     },
     {
       type: 'input',
