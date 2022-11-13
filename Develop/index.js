@@ -1,13 +1,16 @@
-// TODO: Include packages needed for this application
+//Packages needed for running application
 const inquirer = require('inquirer');
 const fs = require('fs');
+var badge;
 
-// TODO: Create an array of questions for user input
-const gernerateReadme = ({badge, projectTitle, description, install, usage, license, contributors,tests, email, github }) =>
-  `# ${projectTitle}
+//Readme template to be generated 
+const gernerateReadme = ({projectTitle, description, install, usage, license, contributors,tests, email, github} ) =>
+
+`${badge}
+# ${projectTitle}
 
 ## Description
-${description} + ${badge}
+${description}
 
 ## Table of Contents
 1. [Installation](#installation)
@@ -39,7 +42,7 @@ For tests, run this command:
 ## Questions <div id='questions'/>
 For quetions, please email at ${email} or visit my github profile at [${github}](https://github.com/${github})`;
 
-// TODO: Create a function to initialize app
+// Init function that houses prompts and if/else badge statements 
 function init() {
   inquirer
   .prompt([
@@ -91,6 +94,21 @@ function init() {
     },
   ])
   .then((answers) => {
+    if (answers.license === 'MIT') {
+      console.log("MIT");
+      badge = "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)";
+    } else if (answers.license ==='APACHE 2.0') {
+      console.log("APACHE");
+      badge = "[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
+    } else if (answers.license === 'GPL 3.0') {
+      console.log("GPL");
+      badge = "[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)";
+    } else if (answers.license === 'BSD 3') {
+      console.log("BSD");
+      badge = "[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)";
+    } else {
+      badge = "";
+    }
     const readmeContent = gernerateReadme(answers);
 
     fs.writeFile('README.md', readmeContent, (err) =>

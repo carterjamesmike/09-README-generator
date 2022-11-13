@@ -1,8 +1,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-# asdf
+# ReadMe Generator
 
 ## Description
-ljkjkl
+Generates a readme file based off user input
 
 ## Table of Contents
 1. [Installation](#installation)
@@ -15,21 +15,21 @@ ljkjkl
 
 ## Installation <div id='installation'/>
 To install, run this command:
->whatever
+>Inquirer v6.2.4
 
 ## Usage <div id='usage'/>
-no!
+n/a
 
-## Licence <div id='licence'/>
-This project is run under the undefined licensure
+## License <div id='license'/>
+This project is run under the MIT licensure
 
 ## Contributors <div id='contributors'/>
-The contributors are: Satan
+The contributors are: n/a
 
 
 ## Test <div id='test'/>
 For tests, run this command:
->thisthat
+>none
 
 ## Questions <div id='questions'/>
 For quetions, please email at carterjamesmike@gmail.com or visit my github profile at [carterjamesmike](https://github.com/carterjamesmike)
